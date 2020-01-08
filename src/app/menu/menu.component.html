@@ -1,23 +1,28 @@
-<ul>
+<div>
+
 	<li class="menu"> <a routerLink="home">Home </a></li>
 	<li class="menu"><a routerLink="hotels">Hotels</a></li>
 	<li class="menu"><a routerLink="car">Cars </a></li>
 	<li class="menu"><a routerLink="deals">Deals </a></li>
 	<li class="menu"><a routerLink="food">Restuarent </a></li>
 	<li class="menu"><a routerLink="help">Help </a></li>
+  
+</div>
 	<!--<div class="vmenu">
   <menu>
     <li> Contact us</li>
     <li> Review </li>
   </menu>
 </div>-->
-
+<div>
 	<br>
 	<br>
 	<div *ngFor="let names of name" class=menu1>{{names}}</div>
+</div>
 	<br>
 	<br>
+  <div>
 	<h3 class=menu2>{{heading}}</h3>
-</ul>
+  </div>
 <!--<h4 class = "me"><a routerLink="registration">New Registration </a></h4>-->
 <h4 class="me"><a routerLink="registration"> New Registration </a></h4>
