@@ -1,9 +1,10 @@
 .nameimg{
   list-style: none;
   background-color: green;
-height:1cm;
-float: left;
-width: 2.9cm;
+line-height: 50px;
+width:2.95cm;
+float:left;
 text-align: center;
 color: white;
+align-items: center;
 }
