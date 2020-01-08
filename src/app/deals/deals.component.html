@@ -1,0 +1,56 @@
+<form [formGroup]="dealsForm" (ngSubmit)="onSubmit()" class="form-deals">
+	<div class="formgp" [ngClass]="{'has-error': formErrors.fullName}">
+		<label class="reg" for="fullName">Full Name :  </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="fullname" formControlName="fullName" type="text" class="regtxt" (blur)="logValidationErrors()">
+		<span class="formufullname" *ngIf="formErrors.fullName">
+  {{formErrors.fullName}}
+    </span>
+	</div>
+
+	<br>
+	<div [ngClass]="{'has-error': formErrors.email}">
+		<label class="reg" for="email">Email :  </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="Emailtext" formControlName="email" type="text" class="reg1" (blur)="logValidationErrors()">
+		<span class="formemail" *ngIf="formErrors.email">
+  {{formErrors.email}}
+    </span>
+
+	</div>
+	<br>
+	<div [ngClass]="{'has-error': formErrors.DOB}">
+		<label class="reg" for="DOB">Date of Birth :  </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="Date_Of_Birthtext" formControlName="DOB" type="date" class="reg1" (blur)="logValidationErrors()">
+		<span class="formufullname" *ngIf="formErrors.DOB">
+  {{formErrors.DOB}}
+    </span>
+	</div>
+	<br>
+	<div formGroupName="PasswordGroup">
+		<div [ngClass]="{'has-error': formErrors.PassWord}">
+			<label class="Password" for="PassWord"> Password :  </label>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="fullnamepassword" formControlName="PassWord" type="password" class="reg12" (blur)="logValidationErrors()">
+			<span class="formufullname" *ngIf="formErrors.PassWord">
+  {{formErrors.PassWord}}
+    </span>
+		</div>
+		<br>
+		<div class="group" [ngClass]="{'has-error': formErrors.CPassWord || formErrors.PasswordGroup}">
+			<div class="formgroup">
+				<label class="CPassword" for="CPassWord">Confirm Password :  </label>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input id="cfpassword" formControlName="CPassWord" type="password" class="reg12">
+				<span class="formpassword" *ngIf ="formErrors.CPassWord|| formErrors.PasswordGroup">
+  {{formErrors.CPassWord ? formErrors.CPassWord :formErrors.PasswordGroup}}
+ </span>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button id="regbtn" class="button" type="submit" (click)= save();>save</button>
+</form>

@@ -1,0 +1,22 @@
+.button{
+  text-align: center;
+  color:rgb(20, 13, 11);
+  background-color:green;
+  width: 2.5cm;
+  padding: 7px;
+}
+hr{
+  border: 1px solid green;
+
+}
+.btn-danger{
+  color:red
+  
+}
+.pull-right
+{
+padding: 8px;
+width:1cm;
+background-color: red;
+color:white;
+}

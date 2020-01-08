@@ -1,0 +1,96 @@
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="form-reg">
+	<div class="formgp"
+		[ngClass]="{'has-error': registrationForm.get('FullName').errors && ((registrationForm.get('FullName').touched)|| (registrationForm.get('FullName').dirty))}">
+
+		<label class="reg" for="FullName">Full Name :  </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<input id="fullname" formControlName="FullName" type="text" class="regtxt">
+		<span class="fulnamespn" *ngIf="registrationForm.get('FullName').errors && (registrationForm.get('FullName').touched|| registrationForm.get('FullName').dirty)">
+       <span *ngIf="registrationForm.get('FullName').errors.required">
+         <br>
+      Full Name is required
+      </span>
+		<span *ngIf="registrationForm.get('FullName').errors.minlength||registrationForm.get('FullName').errors.maxlength">
+         <br>
+      Minimum 3 length and Maximum 12 length
+      
+     </span>
+		</span>
+
+	</div>
+	<br>
+	<br>
+	<div
+		[ngClass]="{'has-error': registrationForm.get('email').errors && ((registrationForm.get('email').touched)|| (registrationForm.get('email').dirty))}">
+		<label class="reg" for="email">Email :  </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="Emailtext" formControlName="email" type="text" class="reg1">
+		<span *ngIf="registrationForm.get('email').errors && (registrationForm.get('email').touched|| registrationForm.get('email').dirty)">
+
+       <span *ngIf="registrationForm.get('email').errors.required">
+         <br>
+         Email Name is required
+      </span>
+		<br>
+		<span *ngIf="email.errors && email.errors.email && email.touched">
+
+         Email is Invalid
+      </span>
+		</span>
+	</div>
+	<br>
+	<br>
+	<div
+		[ngClass]="{'has-error': registrationForm.get('DOB').errors && ((registrationForm.get('DOB').touched)|| (registrationForm.get('DOB').dirty))}">
+		<label class="reg" for="DOB">Date of Birth :  </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="Date_Of_Birthtext" formControlName="DOB" type="date" class="reg1">
+		<span *ngIf="registrationForm.get('DOB').errors && (registrationForm.get('DOB').touched|| registrationForm.get('DOB').dirty)">
+
+       <span *ngIf="registrationForm.get('DOB').errors.required">
+         <br>
+         Date of birth is required
+      </span>
+
+		</span>
+	</div>
+	<br>
+	<br>
+	<div
+		[ngClass]="{'has-error': registrationForm.get('PassWord').errors && ((registrationForm.get('PassWord').touched)|| (registrationForm.get('PassWord').dirty))}">
+
+		<label class="Password" for="PassWord"> Password :  </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="fullnamepassword" formControlName="PassWord" type="password" class="reg12" >
+		<span *ngIf="registrationForm.get('PassWord').errors && (registrationForm.get('PassWord').touched|| registrationForm.get('PassWord').dirty)">
+
+       <span *ngIf="registrationForm.get('PassWord').errors.required">
+         <br>
+         Password is required
+      </span>
+
+		</span>
+	</div>
+	<br>
+	<br>
+	<div
+		[ngClass]="{'has-error': registrationForm.get('CPassWord').errors && ((registrationForm.get('CPassWord').touched)|| (registrationForm.get('CPassWord').dirty))}">
+		<label class="CPassword" for="CPassWord">Confirm Password :  </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id="cfpassword" formControlName="CPassWord" type="password" class="reg12">
+		<span *ngIf="registrationForm.get('CPassWord').errors && (registrationForm.get('PassWord').touched|| registrationForm.get('CPassWord').dirty)">
+
+       <span *ngIf="registrationForm.get('CPassWord').errors.required">
+         <br>
+         Password is required
+      </span>
+
+
+		</span>
+	</div>
+	<br>
+	<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button id="regbtn" class="button" type="submit" (click)= save();>save</button>
+</form>

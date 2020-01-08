@@ -1,0 +1,32 @@
+<form [formGroup]="helpForm" (ngSubmit)="onSubmit()" class=form-help>
+	<div class="formGrop">
+		<label class="Controllable"> Contact Preference</label>
+		<div class="radioinline">
+			<label class="radioline">
+  <input type="radio" name="contactpreference" value="email"  formControlName="contactpreference"> Email</label>
+			<label class="radioline">
+  <input type="radio" name="contactpreference" value="phone"   formControlName="contactpreference"> Phone</label>
+		</div>
+	</div>
+	<br>
+	<div class="emiltxt" [ngClass]="{'has-error': formErrors.email}">
+		<label class="emailtxt" for ="email"> Email  &nbsp; : </label>
+		<input type="text" class="txtemail" formControlName ="email" (blur)="logValidationErrors()">
+		<span class="formemail" *ngIf="formErrors.email">
+  {{formErrors.email}}
+</span>
+		<br>
+</div>
+		<br>
+		<div class="phonetxt" [ngClass]="{'has-error': formErrors.phone}">
+			<label class="phtxt" > Phone &nbsp;: </label>
+			<input type="text" class="txtph" for="phone" formControlName ="phone" (blur)="logValidationErrors()">
+			<span class="formphone" *ngIf="formErrors.phone">
+  {{formErrors.phone}}
+</span>
+		</div>
+		<div>
+
+			<button id="regbtn" class="button" type="submit" (click)= save();>save</button>
+		</div>
+</form>

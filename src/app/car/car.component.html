@@ -1,0 +1,76 @@
+<form [formGroup]="carForm" (onSubmit)="onSubmit()" class="car">
+	<div class="name" [ngClass]="{'has-error':formErrors.name}">
+		<label id="namel" for="name"> Name : &nbsp;&nbsp;</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" class="name" formControlName="name" (blur)="logValidationErrors()">
+		<span class="name" *ngIf=formErrors.name>
+    {{formErrors.name}}
+  </span>
+		<br>
+		<br>
+</div>
+		<div class="phone" [ngClass]="{'has-error':formErrors.PhoneNo}">
+			<label id="Phonel" for="PhoneNo"> Phone No:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+			<input type="text" class="phone" formControlName="PhoneNo" (blur)="logValidationErrors()">
+			<span class="Phone" *ngIf=formErrors.PhoneNo>
+    {{formErrors.PhoneNo}}
+  </span>
+		</div>
+		<br>
+
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<div class="addcar">
+			<button class="button" type="button" (click)="addcarbtn()" [disabled]="carForm.get('more').invalid">More Car</button>
+		</div>
+
+		<div class="well">
+			<div formArrayName="more" *ngFor="let mores of carForm.get('more').controls; let i = index">
+				<hr *ngIf="i>0">
+				<div [formGroupName]="i">
+
+					<br>
+					<div class="BDT" [attr.for]="'nameBdt'+i"
+						[ngClass]="{'has-error':mores.get('nameBdt').invalid && mores.get('nameBdt').touched}">
+						<label [id]="'bookingdt'+i" [attr.for]="'nameBdt'+i"> Booking Date : &nbsp;&nbsp;</label>
+						<input type="date" [id]="'nameBdt'+i"class="namebdt" formControlName="nameBdt"  >
+						<span class="dateB" *ngIf="mores.get('nameBdt').errors?.required && mores.get('nameBdt').touched">
+   Booking date required
+  </span>
+					</div>
+
+
+					<br>
+					<div class="RDT" [attr.for]="'nameRdt'+i"
+						[ngClass]="{'has-error':mores.get('nameRdt').invalid && mores.get('nameRdt').touched}">
+						<label [id]="'returndt'+i" [attr.for]="'nameRdt'+i"> Return Date : &nbsp;&nbsp;</label>
+						&nbsp;
+						<input type="date" [id]="'nameRdt'+i"class="name"  formControlName="nameRdt" datePickerConfig>
+						<span class="date" *ngIf= "mores.get('nameRdt').errors?.required && mores.get('nameRdt').touched">
+   Return date required
+  </span>
+					</div>
+					<br>
+					<div class="selection">
+						<label id ="CarBrandName"> Car Name : &nbsp;&nbsp;</label>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<select>
+    <option value="Ford">Ford</option>
+    <option value="BMW">BMW</option>
+    <option value="Toyoto">Toyoto</option>
+    <option value="Benze">Benze</option>
+    <option value="Audi">Audi</option>
+    <option value="Acura">Acura</option>
+  </select>
+					</div>
+					<div class="col-sm-6" *ngIf="carForm.get('more').length>1">
+						<button type="button" class="pull-right" title="Delete more" (click)="deteteMoreclick(i)">X</button>
+						<span class="glyphicon-remove"></span>
+					</div>
+				</div>
+
+			</div>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button class="button" type="submit">Book</button>
+		</div>
+		<!--<img *ngIf="display;"src="https://focus2move.com/wp-content/uploads/2019/03/Ford-Mustang_Shelby_GT500-2020-680x340.jpg">
+<img *ngIf= "!display;" src="https://www.motorsportmagazine.com/sites/default/files/glickenhaus-header.jpg">-->
+</form>
