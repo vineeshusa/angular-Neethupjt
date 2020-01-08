@@ -1,3 +1,8 @@
-p {
-  font-family: Lato;
+.middle {
+  
+  border: thin;
+  background-color: rgb(218, 235, 172);
+}
+.mainmenu{
+  background-color: palegreen;
 }

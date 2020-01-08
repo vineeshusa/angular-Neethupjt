@@ -20,7 +20,8 @@ color: red;
   float: left;
   color:rgb(248, 54, 6);
   background-color: palegreen;
-  width: 2.25cm;
+  width: 85px;
+  margin: auto;
   padding: 13px;
 }
 .menu2
